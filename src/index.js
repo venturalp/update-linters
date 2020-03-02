@@ -10,7 +10,7 @@ const pkgTargetPath = `${targetPath}/package.json`
 const pkgMainFile = JSON.parse(fs.readFileSync(pkgMainPath))
 const pkgTargetFile = JSON.parse(fs.readFileSync(pkgTargetPath))
 
-console.log('🚀 Starting update')
+console.log('🚀 Start updating...')
 
 if (pkgTargetFile && !pkgTargetFile.devDependencies) {
   pkgTargetFile.devDependencies = pkgMainFile.devDependencies
@@ -24,32 +24,34 @@ fs.writeFile(
   },
 )
 
-exec('rm -rf node_modules', (error, stdout, stderr) => {
-  console.log('Removing node_modules...')
-  if (error) {
-    console.log(`error: ${error.message}`)
-    return
-  }
-  if (stderr) {
-    console.log(`stderr: ${stderr}`)
-    return
-  }
-  if (!stdout) {
-    console.log('node_modules removed')
-  } else {
-    console.log(`node_modules removed\n${stdout}`)
-  }
-})
+function execCommand(command) {
+  return new Promise((resolve, reject) => {
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.log(`❌ error: ${error.message}`)
+        reject({ error, stdout, stderr })
+        return
+      }
+      if (stderr) {
+        console.log(`⚠️ stderr: ${stderr}`)
+        reject({ error, stdout, stderr })
+        return
+      }
+      if (!stdout) {
+        console.log('node_modules removed ✅')
+      } else {
+        console.log(`node_modules removed ✅\n${stdout}`)
+      }
+      resolve({ error, stdout, stderr })
+    })
+  })
+}
 
-exec('yarn', (error, stdout, stderr) => {
-  console.log('Installing dependencies...')
-  if (error) {
-    console.log(`error: ${error.message}`)
-    return
-  }
-  if (stderr) {
-    console.log(`stderr: ${stderr}`)
-    return
-  }
-  console.log(`stdout: ${stdout}`)
-})
+async function main() {
+  console.log('🕛 Removing node_modules...')
+  const removeFiles = await execCommand('rm -rf node_modules')
+  console.log('🕛 Installing dependencies...')
+  const installDependencies = await execCommand('yarn')
+}
+
+main()

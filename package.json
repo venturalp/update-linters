@@ -1,10 +1,27 @@
 {
   "name": "update-linters",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.1",
   "author": "Guilherme Ventura de Souza",
   "license": "MIT",
+  "main": "./lib/index.js",
+  "scripts": {
+    "clean": "rimraf lib && rimraf dist",
+    "build": "rimraf lib && webpack --mode production && rimraf dist",
+    "prepublish": "yarn clean && yarn build && rimraf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/venturalp/update-linters.git"
+  },
+  "keywords": [
+    "update",
+    "linters",
+    "venturalp",
+    "node",
+    "cra"
+  ],
   "devDependencies": {
+    "copy-webpack-plugin": "^5.1.1",
     "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.7.0",
@@ -16,6 +33,18 @@
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^2.3.0",
     "eslint-plugin-unused-imports": "^0.1.2",
-    "prettier": "^1.19.1"
-  }
+    "np": "^6.2.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "browser": {
+    "child_process": false,
+    "fs": false
+  },
+  "files": [
+    "lib",
+    "src"
+  ]
 }
