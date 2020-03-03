@@ -1,14 +1,7 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: [
-    'prettier',
-    'airbnb',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:flowtype/recommended',
-    'plugin:flowtype-errors/recommended',
-  ],
-  plugins: ['flowtype', 'unused-imports', 'react-hooks'],
+  extends: ['prettier', 'plugin:import/errors', 'plugin:import/warnings'],
+  plugins: ['unused-imports'],
   env: {
     browser: true,
     node: true,
@@ -45,46 +38,18 @@ module.exports = {
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'no-underscore-dangle': 'off',
     'no-unused-expressions': ['error', { allowShortCircuit: true }],
-    'react/jsx-one-expression-per-line': 'off',
     'import/no-useless-path-segments': 'off',
     'import/order': 'off',
-    'react/react-in-jsx-scope': 'off',
     'implicit-arrow-linebreak': 'off',
     'linebreak-style': 0,
-    'react/prop-types': 'off',
     'arrow-parens': ['error', 'as-needed'],
-    'react/static-property-placement': 0,
-    'flowtype/no-types-missing-file-annotation': 0,
-    'comma-dangle': 2,
-    'react/jsx-props-no-spreading': [
-      { custom: 'ignore', explicitSpread: 'ignore' },
-    ],
-    'react/jsx-filename-extension': [
-      1,
-      {
-        extensions: ['.js', '.jsx'],
-      },
-    ],
-    'react/prefer-stateless-function': 'off',
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      {
-        components: ['Link'],
-        specialLink: ['to'],
-        aspects: ['noHref', 'invalidHref', 'preferButton'],
-      },
-    ],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
+    'comma-dangle': ['error', 'always-multiline'],
   },
   settings: {
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.vue'],
       },
-    },
-    flowtype: {
-      onlyFilesWithFlowAnnotation: true,
     },
   },
 }
