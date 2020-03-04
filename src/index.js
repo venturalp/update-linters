@@ -3,11 +3,12 @@ const params = process.argv
 
 const targetPath = process.env.PWD
 const mainPath = params[1]
-const { execAsync, mergeObject } = require('./helpers')
+const { execAsync, updateJSFile } = require('./helpers')
 const ncp = require('ncp').ncp
 const argv = require('./helpers/cli-args')
+const pathConfig = { mainPath, targetPath }
 
-console.log(argv)
+if (argv.debug) console.log(argv)
 
 /**
  * Treat .vscode option
@@ -18,8 +19,8 @@ function vscodeUpdate(flag) {
   console.log('🕛 Copying .vscode settings...')
   new Promise((resolve, reject) => {
     ncp(`${mainPath}/files/.vscode`, `${targetPath}/.vscode`, err => {
-      if (err) reject(`Failed to copy .vscode settings ❌\n${err}`)
-      else resolve('.vscode settings copied successfully ✅')
+      if (err) reject(`❌ Failed to copy .vscode settings\n${err}`)
+      else resolve('✅ .vscode settings copied successfully')
     })
   })
     .then(value => console.log(`${value}`))
@@ -48,65 +49,15 @@ function updateDependencies() {
       new Buffer.from(`${JSON.stringify(pkgTargetFile, null, 2)}\n`),
       err => {
         if (err) {
-          const errMsg = `${err} ❌`
+          const errMsg = `❌ ${err}`
           console.log(errMsg)
           reject(errMsg)
         }
-        const msg = 'Update dependecies finished successfully ✅'
+        const msg = '✅ Update dependecies finished successfully'
         console.log(msg)
         resolve(msg)
       },
     )
-  })
-}
-
-function readJS(path) {
-  return new Promise((resolve, reject) => {
-    try {
-      const file = require(path)
-      resolve(file)
-    } catch (err) {
-      reject(err)
-    }
-  })
-}
-
-async function eslintUpdate(flag) {
-  if (!flag) return
-
-  return new Promise(async (resolve, reject) => {
-    const eslMainPath = `${mainPath}/files/.eslintrc.js`
-    const eslTargetPath = `${targetPath}/.eslintrc2.js`
-    // let eslMainFile = await readJS(eslMainPath)
-    let eslTargetFile = await readJS(eslTargetPath)
-    eslTargetFile = require(eslTargetPath)
-    // if (eslTargetFile === 'ENOENT') {
-    //   console.log('.eslintrc.js not found')
-    //   eslTargetFile = eslMainFile
-    // }
-    console.log('AQUI', eslTargetFile)
-
-    console.log('🕛 Updating eslint settings...')
-    // if (!eslTargetFile) {
-    //   eslTargetFile = eslMainFile
-    // } else {
-    //   eslTargetFile = mergeObject(eslMainFile, eslTargetFile)
-    // }
-
-    // fs.writeFile(
-    //   eslTargetPath,
-    //   new Buffer.from(`${JSON.stringify(eslTargetFile, null, 2)}\n`),
-    //   err => {
-    //     if (err) {
-    //       const errMsg = `${err} ❌`
-    //       console.log(errMsg)
-    //       reject(errMsg)
-    //     }
-    //     const msg = 'Update eslint settings finished successfully ✅'
-    //     console.log(msg)
-    //     resolve(msg)
-    //   },
-    // )
   })
 }
 
@@ -115,7 +66,8 @@ async function main() {
 
   vscodeUpdate(argv.vscode)
   await updateDependencies()
-  await eslintUpdate(argv.eslint)
+  await updateJSFile(argv.eslint, '.eslintrc.js', 'Eslint', pathConfig)
+  await updateJSFile(argv.prettier, '.prettierrc.js', 'Prettier', pathConfig)
   await execAsync(
     'rm -rf node_modules',
     '🕛 Removing node_modules...',
@@ -125,6 +77,11 @@ async function main() {
     'yarn',
     '🕛 Installing dependencies...',
     'Install dependencies',
+  )
+  await execAsync(
+    `yarn prettier-eslint --write ${targetPath}/.*.js`,
+    '🕛 Formating files',
+    'Format files',
   )
 }
 

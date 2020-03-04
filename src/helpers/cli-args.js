@@ -7,9 +7,21 @@ const argv = yargs
     default: false,
     type: 'boolean',
   })
+  .option('DEBUG', {
+    alias: 'dbg',
+    description: 'Debug mode',
+    default: false,
+    type: 'boolean',
+  })
   .option('ESLINT', {
     alias: 'esl',
     description: 'Update .eslintrc.js settings',
+    default: true,
+    type: 'boolean',
+  })
+  .option('PRETTIER', {
+    alias: 'ptr',
+    description: 'Update .prettier.js settings',
     default: true,
     type: 'boolean',
   })

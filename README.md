@@ -16,7 +16,7 @@ Using [create-react-app](https://github.com/facebook/create-react-app) template 
 | --EDITOR, --edt    | `false` by default:<br>this option indicates to use `.editorconfig` settings into the update process |
 | --BABEL, --babel   | `true` by default:<br>this option indicates to use `.babelrc` settings into the update process       |
 
-<sup>1</sup>: Use `--no` prefix to set an option as false. E.g.: `npx @venturalp/update-linters --no-ESLINT`
+<sup>1</sup>Use `--no` prefix to set an option as false. E.g.: `npx @venturalp/update-linters --no-ESLINT`
 
 ### Attention
 
@@ -37,3 +37,4 @@ On terminal, go to your project path, then run:
 - Option to define what kinds of dependencies it should install
 - Option to define a _mainSource_/_template_ to use instead of its own
 - Option to use a third party library to install IDE extensions (VSCode, VIM, WebStorm, IntelliJ, Atom)
+- Implement deep compare on source and target files
