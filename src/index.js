@@ -60,35 +60,53 @@ function updateDependencies() {
   })
 }
 
+function readJS(path) {
+  return new Promise((resolve, reject) => {
+    try {
+      const file = require(path)
+      resolve(file)
+    } catch (err) {
+      reject(err)
+    }
+  })
+}
+
 async function eslintUpdate(flag) {
   if (!flag) return
 
-  return new Promise((resolve, reject) => {
-    const eslMainPath = `${mainPath}/files/.eslint.js`
-    const eslTargetPath = `${targetPath}/.eslint.js`
-    const eslMainFile = JSON.parse(fs.readFileSync(eslMainPath))
-    const eslTargetFile = JSON.parse(fs.readFileSync(eslTargetPath))
-    console.log('🕛 Updating eslint settings...')
-    if (!eslTargetFile) {
-      eslTargetFile = eslMainFile
-    } else {
-      eslTargetFile = mergeObject(eslMainFile, eslTargetFile)
-    }
+  return new Promise(async (resolve, reject) => {
+    const eslMainPath = `${mainPath}/files/.eslintrc.js`
+    const eslTargetPath = `${targetPath}/.eslintrc2.js`
+    // let eslMainFile = await readJS(eslMainPath)
+    let eslTargetFile = await readJS(eslTargetPath)
+    eslTargetFile = require(eslTargetPath)
+    // if (eslTargetFile === 'ENOENT') {
+    //   console.log('.eslintrc.js not found')
+    //   eslTargetFile = eslMainFile
+    // }
+    console.log('AQUI', eslTargetFile)
 
-    fs.writeFile(
-      eslTargetPath,
-      new Buffer.from(`${JSON.stringify(eslTargetFile, null, 2)}\n`),
-      err => {
-        if (err) {
-          const errMsg = `${err} ❌`
-          console.log(errMsg)
-          reject(errMsg)
-        }
-        const msg = 'Update eslint settings finished successfully ✅'
-        console.log(msg)
-        resolve(msg)
-      },
-    )
+    console.log('🕛 Updating eslint settings...')
+    // if (!eslTargetFile) {
+    //   eslTargetFile = eslMainFile
+    // } else {
+    //   eslTargetFile = mergeObject(eslMainFile, eslTargetFile)
+    // }
+
+    // fs.writeFile(
+    //   eslTargetPath,
+    //   new Buffer.from(`${JSON.stringify(eslTargetFile, null, 2)}\n`),
+    //   err => {
+    //     if (err) {
+    //       const errMsg = `${err} ❌`
+    //       console.log(errMsg)
+    //       reject(errMsg)
+    //     }
+    //     const msg = 'Update eslint settings finished successfully ✅'
+    //     console.log(msg)
+    //     resolve(msg)
+    //   },
+    // )
   })
 }
 
