@@ -1,6 +1,6 @@
 {
   "name": "@venturalp/update-linters",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Guilherme Ventura de Souza",
   "license": "MIT",
   "main": "./lib/index.js",
