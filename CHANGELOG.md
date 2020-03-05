@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/venturalp/update-linters/compare/v0.1.1...v0.1.2) (2020-03-05)
+
+
+### Features
+
+* **Lib:** Include lib into repo ([b0df629](https://github.com/venturalp/update-linters/commit/b0df629776483cbfdbebb748c8baf64faf7ec58c))
+
+
+
 ## [0.1.1](https://github.com/venturalp/update-linters/compare/v0.1.0...v0.1.1) (2020-03-05)
 
 
