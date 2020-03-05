@@ -3,7 +3,9 @@
   "version": "0.1.1",
   "author": "Guilherme Ventura de Souza",
   "license": "MIT",
-  "bin": "./lib/index.js",
+  "bin": {
+    "update-linters": "./lib/index.js"
+  },
   "scripts": {
     "clean": "rimraf lib && rimraf dist",
     "build": "rimraf lib && webpack --mode production && rimraf dist",
