@@ -10,11 +10,11 @@
     "prepublish": "yarn clean && yarn build && rimraf dist",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "test": "echo \"Error: no tests specified yet\"",
-    "publish": "npm publish --access public",
     "release": "np --any-branch"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "repository": {
     "type": "git",
