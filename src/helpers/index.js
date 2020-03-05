@@ -1,5 +1,6 @@
 const { exec } = require('child_process')
 const fs = require('fs')
+const ncp = require('ncp').ncp
 
 function execAsync(command, startMsg, endMsg) {
   return new Promise((resolve, reject) => {
@@ -124,9 +125,29 @@ async function updateJSFile(flag, fileSource, msgLog, config) {
   })
 }
 
+/**
+ * Treat .vscode option
+ * @param {Boolean} flag flag to define if it whether to copy settings or not
+ * @param {string} path path to the file or directory to copy
+ * @param {string} msgLog Operation log identifier
+ */
+function copyConfig(flag, path, msgLog, { mainPath, targetPath }) {
+  if (!flag) return
+  console.log(`🕛 Copying ${msgLog} settings...`)
+  new Promise((resolve, reject) => {
+    ncp(`${mainPath}/files/${path}`, `${targetPath}/${path}`, err => {
+      if (err) reject(`❌ Failed to copy ${msgLog} settings\n${err}`)
+      else resolve(`✅ ${msgLog} settings copied successfully`)
+    })
+  })
+    .then(value => console.log(`${value}`))
+    .catch(err => console.log(`${err}`))
+}
+
 module.exports = {
   execCommand,
   execAsync,
   mergeObject,
   updateJSFile,
+  copyConfig,
 }

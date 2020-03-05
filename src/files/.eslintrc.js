@@ -5,10 +5,8 @@ module.exports = {
     'airbnb',
     'plugin:import/errors',
     'plugin:import/warnings',
-    'plugin:flowtype/recommended',
-    'plugin:flowtype-errors/recommended',
   ],
-  plugins: ['flowtype', 'unused-imports', 'react-hooks'],
+  plugins: ['unused-imports', 'react-hooks'],
   env: {
     browser: true,
     node: true,
@@ -54,7 +52,6 @@ module.exports = {
     'react/prop-types': 'off',
     'arrow-parens': ['error', 'as-needed'],
     'react/static-property-placement': 0,
-    'flowtype/no-types-missing-file-annotation': 0,
     'comma-dangle': 2,
     'react/jsx-props-no-spreading': [
       { custom: 'ignore', explicitSpread: 'ignore' },
@@ -82,9 +79,6 @@ module.exports = {
       node: {
         extensions: ['.js', '.jsx', '.vue'],
       },
-    },
-    flowtype: {
-      onlyFilesWithFlowAnnotation: true,
     },
   },
 }

@@ -25,6 +25,12 @@ const argv = yargs
     default: true,
     type: 'boolean',
   })
+  .option('EDITOR', {
+    alias: 'edt',
+    description: 'Update .editorconfig settings',
+    default: false,
+    type: 'boolean',
+  })
   .help()
   .alias('help', 'h')
   .showHelpOnFail(false, 'Specify --help for available options').argv
