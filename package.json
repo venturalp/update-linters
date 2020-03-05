@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Guilherme Ventura de Souza",
   "license": "MIT",
-  "main": "./lib/index.js",
+  "bin": "./lib/index.js",
   "scripts": {
     "clean": "rimraf lib && rimraf dist",
     "build": "rimraf lib && webpack --mode production && rimraf dist",
