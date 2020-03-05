@@ -8,9 +8,10 @@
     "clean": "rimraf lib && rimraf dist",
     "build": "rimraf lib && webpack --mode production && rimraf dist",
     "prepublish": "yarn clean && yarn build && rimraf dist",
-    "version": "npx conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "test": "echo \"Error: no tests specified yet\"",
-    "publish": "npm publish --access public"
+    "publish": "npm publish --access public",
+    "release": "np --any-branch"
   },
   "repository": {
     "type": "git",
