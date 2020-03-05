@@ -1,3 +1,17 @@
+## [0.1.1](https://github.com/venturalp/update-linters/compare/v0.1.0...v0.1.1) (2020-03-05)
+
+
+### Bug Fixes
+
+* **Lib Path:** Remove lib from gitignore, set bin prop ([41d7447](https://github.com/venturalp/update-linters/commit/41d7447eca140b08cccf1b845718b702c58b6d1e))
+
+
+### Features
+
+* **Lib:** Include lib into repo ([7804c5a](https://github.com/venturalp/update-linters/commit/7804c5a939a96b0c3554eafb4c7a4bb3439637fe))
+
+
+
 # 0.1.0 (2020-03-05)
 
 
