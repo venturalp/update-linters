@@ -9,7 +9,7 @@
     "build": "rimraf lib && webpack --mode production && rimraf dist",
     "prepublish": "yarn clean && yarn build && rimraf dist",
     "version": "npx conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
-    "test": "echo \"Error: no tests specified yet\" && exit 1"
+    "test": "echo \"Error: no tests specified yet\""
   },
   "repository": {
     "type": "git",
