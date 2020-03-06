@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/venturalp/update-linters/compare/v0.1.3...v0.1.4) (2020-03-06)
+
+
+### Features
+
+* **Lib Requires:** Fix require problems with __non_webpack_require__ and also fix lib properties in package.json ([5475de1](https://github.com/venturalp/update-linters/commit/5475de15ecebbc22344775799d14b0f0a3354c4f))
+
+
+
 ## [0.1.3](https://github.com/venturalp/update-linters/compare/v0.1.2...v0.1.3) (2020-03-06)
 
 
