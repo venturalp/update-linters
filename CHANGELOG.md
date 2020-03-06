@@ -1,3 +1,12 @@
+## [0.1.9](https://github.com/venturalp/update-linters/compare/v0.1.8...v0.1.9) (2020-03-06)
+
+
+### Features
+
+* **Package|Webpack:** Try to fix running problems/webpack ([6928d16](https://github.com/venturalp/update-linters/commit/6928d1616f56a9caac90b2c24354d948dd3f3b5c))
+
+
+
 ## [0.1.8](https://github.com/venturalp/update-linters/compare/v0.1.7...v0.1.8) (2020-03-06)
 
 
