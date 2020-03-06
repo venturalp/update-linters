@@ -11,7 +11,7 @@
   },
   "main": "./lib/index.js",
   "bin": {
-    "update-linters": "lib/index.js"
+    "@venturalp/update-linters": ".bin/index.js"
   },
   "scripts": {
     "clean": "rimraf lib",
