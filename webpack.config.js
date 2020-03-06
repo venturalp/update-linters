@@ -8,6 +8,10 @@ module.exports = {
     path: path.resolve(__dirname, `${distPath}`), // it defines its output folder
     filename: 'index.js', // bundle name
     publicPath: '/',
+    library: '@venturalp/update-linters',
+    libraryTarget: 'umd',
+    publicPath: '/lib/',
+    umdNamedDefine: true,
   },
   target: 'node',
   plugins: [
