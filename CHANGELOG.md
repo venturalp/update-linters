@@ -1,3 +1,12 @@
+## [0.1.5](https://github.com/venturalp/update-linters/compare/v0.1.4...v0.1.5) (2020-03-06)
+
+
+### Features
+
+* **Package:** Include main prop ([f9a36ae](https://github.com/venturalp/update-linters/commit/f9a36aeefd23a013f846a698389a43253d8c9810))
+
+
+
 ## [0.1.4](https://github.com/venturalp/update-linters/compare/v0.1.3...v0.1.4) (2020-03-06)
 
 
