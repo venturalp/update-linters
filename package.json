@@ -1,6 +1,7 @@
 {
   "name": "@venturalp/update-linters",
   "version": "0.1.6",
+  "description": "Lint rules updater to keep patterns among teams",
   "author": "Guilherme Ventura de Souza",
   "license": "MIT",
   "person": {
@@ -8,20 +9,17 @@
     "email": "venturalp@gmail.com",
     "url": "https://github.com/venturalp"
   },
-  "bin": {
-    "update-linters": "lib/index.js"
-  },
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
-    "build": "rimraf lib && webpack --mode production",
-    "prepublish": "yarn clean && yarn build",
+    "build": "webpack --mode production",
+    "prebuild": "yarn clean",
+    "prepublishOnly": "yarn build",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "test": "echo \"Error: no tests specified yet\"",
     "release": "np --any-branch"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
   "repository": {
