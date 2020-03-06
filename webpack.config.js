@@ -8,10 +8,6 @@ module.exports = {
     path: path.resolve(__dirname, `${distPath}`), // it defines its output folder
     filename: 'index.js', // bundle name
     publicPath: '/',
-    library: '@venturalp/update-linters',
-    libraryTarget: 'umd',
-    publicPath: '/lib/',
-    umdNamedDefine: true,
   },
   target: 'node',
   plugins: [
@@ -22,4 +18,21 @@ module.exports = {
       },
     ]),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/, // regex to find files that webpack applies
+        resolve: {
+          extensions: ['.js'], // resolves files extensiosn
+        },
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader', // using babel loader for transpiling es6 to es5
+          options: {
+            cacheDirectory: true, // option to transpile only modfied files
+          },
+        },
+      },
+    ],
+  },
 }

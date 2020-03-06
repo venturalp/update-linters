@@ -9,7 +9,10 @@
     "email": "venturalp@gmail.com",
     "url": "https://github.com/venturalp"
   },
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
+  "bin": {
+    "update-linters": "lib/index.js"
+  },
   "scripts": {
     "clean": "rimraf lib",
     "build": "webpack --mode production",
@@ -35,7 +38,11 @@
     "cra"
   ],
   "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
     "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.0.6",
     "conventional-changelog-cli": "^2.0.31",
     "copy-webpack-plugin": "^5.1.1",
     "eslint": "^6.7.2",
@@ -56,12 +63,13 @@
     "fs": false
   },
   "files": [
-    "lib/"
+    "lib"
   ],
   "engines": {
     "node": ">=10"
   },
   "dependencies": {
+    "@babel/runtime": "^7.8.7",
     "ncp": "^2.0.0",
     "yargs": "^15.1.0"
   }
