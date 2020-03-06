@@ -1,3 +1,12 @@
+## [0.1.6](https://github.com/venturalp/update-linters/compare/v0.1.5...v0.1.6) (2020-03-06)
+
+
+### Features
+
+* **Package:** Try to fix running problems ([50fafc6](https://github.com/venturalp/update-linters/commit/50fafc699bb94181b186350f0d438e3ce63e42e7))
+
+
+
 ## [0.1.5](https://github.com/venturalp/update-linters/compare/v0.1.4...v0.1.5) (2020-03-06)
 
 
