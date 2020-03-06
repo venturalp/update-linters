@@ -76,9 +76,11 @@ function mergeObject(source, target) {
 function readJS(path) {
   return new Promise(resolve => {
     try {
-      const file = require(path)
+      // eslint-disable-next-line no-undef
+      const file = __non_webpack_require__(path)
       resolve(file)
     } catch (err) {
+      console.log('erro ', path)
       resolve(err)
     }
   })

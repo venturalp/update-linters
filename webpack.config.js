@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const CopyFiles = require('copy-webpack-plugin')
 const distPath = 'lib'
 const path = require('path')

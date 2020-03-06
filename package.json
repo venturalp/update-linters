@@ -4,12 +4,12 @@
   "author": "Guilherme Ventura de Souza",
   "license": "MIT",
   "bin": {
-    "update-linters": "./lib/index.js"
+    "update-linters": "lib/index.js"
   },
   "scripts": {
-    "clean": "rimraf lib && rimraf dist",
-    "build": "rimraf lib && webpack --mode production && rimraf dist",
-    "prepublish": "yarn clean && yarn build && rimraf dist",
+    "clean": "rimraf lib",
+    "build": "rimraf lib && webpack --mode production",
+    "prepublish": "yarn clean && yarn build",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
     "test": "echo \"Error: no tests specified yet\"",
     "release": "np --any-branch"
@@ -51,9 +51,7 @@
     "fs": false
   },
   "files": [
-    "lib/index.js",
-    "lib/files/*",
-    "lib/files/.vscode/*"
+    "lib"
   ],
   "engines": {
     "node": ">=10"

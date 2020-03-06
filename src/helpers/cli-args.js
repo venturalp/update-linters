@@ -1,6 +1,6 @@
 const yargs = require('yargs')
 
-const argv = yargs
+module.exports = yargs
   .option('VSCODE', {
     alias: 'vsc',
     description: 'Update .vscode settings',
@@ -34,5 +34,3 @@ const argv = yargs
   .help()
   .alias('help', 'h')
   .showHelpOnFail(false, 'Specify --help for available options').argv
-
-module.exports = argv
