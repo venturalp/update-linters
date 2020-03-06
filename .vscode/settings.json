@@ -1,6 +1,6 @@
 {
   "breadcrumbs.enabled": true,
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "javascript.validate.enable": false,
   "terminal.integrated.windowsEnableConpty": false,
   "terminal.integrated.shellArgs.windows": ["-NoLogo"],
