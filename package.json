@@ -6,6 +6,7 @@
   "bin": {
     "update-linters": "lib/index.js"
   },
+  "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf lib",
     "build": "rimraf lib && webpack --mode production",
