@@ -3,6 +3,11 @@
   "version": "0.1.5",
   "author": "Guilherme Ventura de Souza",
   "license": "MIT",
+  "person": {
+    "name": "Guilherme Ventura de Souza",
+    "email": "venturalp@gmail.com",
+    "url": "https://github.com/venturalp"
+  },
   "bin": {
     "update-linters": "lib/index.js"
   },
@@ -52,7 +57,7 @@
     "fs": false
   },
   "files": [
-    "lib"
+    "lib/"
   ],
   "engines": {
     "node": ">=10"

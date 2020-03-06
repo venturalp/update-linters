@@ -35,7 +35,7 @@ function updateDependencies() {
           console.log(errMsg)
           reject(errMsg)
         }
-        const msg = '✅ Update dependecies finished successfully'
+        const msg = '✔ Update dependecies finished successfully'
         console.log(msg)
         resolve(msg)
       },

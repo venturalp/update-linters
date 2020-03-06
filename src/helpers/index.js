@@ -16,10 +16,10 @@ function execAsync(command, startMsg, endMsg) {
         console.log(`⚠️ stderr: ${stderr}`)
       }
       if (!stdout) {
-        console.log(`✅ ${endMsg} finished`)
+        console.log(`✔ ${endMsg} finished`)
         resolve({ error, stdout, stderr })
       } else {
-        console.log(`${stdout}\n✅ ${endMsg} finished`)
+        console.log(`${stdout}\n✔ ${endMsg} finished`)
         resolve({ error, stdout, stderr })
       }
     })
@@ -35,8 +35,8 @@ function execCommand(command, startMsg, endMsg) {
       return
     }
     if (stderr) console.log(`⚠️ stderr: ${stderr}`)
-    if (!stdout) console.log(`✅ ${endMsg} finished`)
-    else console.log(`${stdout}\n✅ ${endMsg} finished`)
+    if (!stdout) console.log(`✔ ${endMsg} finished`)
+    else console.log(`${stdout}\n✔ ${endMsg} finished`)
   })
 }
 
@@ -119,7 +119,7 @@ async function updateJSFile(flag, fileSource, msgLog, config) {
           console.log(errMsg)
           reject(errMsg)
         }
-        const msg = `✅ Update ${msgLog} settings finished successfully`
+        const msg = `✔ Update ${msgLog} settings finished successfully`
         console.log(msg)
         resolve(msg)
       },
@@ -139,7 +139,7 @@ function copyConfig(flag, path, msgLog, { mainPath, targetPath }) {
   new Promise((resolve, reject) => {
     ncp(`${mainPath}/files/${path}`, `${targetPath}/${path}`, err => {
       if (err) reject(`❌ Failed to copy ${msgLog} settings\n${err}`)
-      else resolve(`✅ ${msgLog} settings copied successfully`)
+      else resolve(`✔ ${msgLog} settings copied successfully`)
     })
   })
     .then(value => console.log(`${value}`))
