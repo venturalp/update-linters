@@ -51,9 +51,13 @@
     "fs": false
   },
   "files": [
-    "lib",
-    "src"
+    "lib/index.js",
+    "lib/files/*",
+    "lib/files/.vscode/*"
   ],
+  "engines": {
+    "node": ">=10"
+  },
   "dependencies": {
     "ncp": "^2.0.0",
     "yargs": "^15.1.0"
