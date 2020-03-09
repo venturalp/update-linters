@@ -77,7 +77,7 @@ function readJS(path) {
   return new Promise(resolve => {
     try {
       // eslint-disable-next-line no-undef
-      const file = __non_webpack_require__(path)
+      const file = require(path)
       resolve(file)
     } catch (err) {
       console.log('erro ', path)
