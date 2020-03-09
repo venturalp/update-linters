@@ -1,6 +1,6 @@
 {
   "name": "@venturalp/update-linters",
-  "version": "0.1.11",
+  "version": "0.2.0",
   "description": "Lint rules updater to keep patterns among teams",
   "author": "Guilherme Ventura de Souza",
   "license": "MIT",

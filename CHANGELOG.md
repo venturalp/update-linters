@@ -1,3 +1,12 @@
+# [0.2.0](https://github.com/venturalp/update-linters/compare/v0.1.11...v0.2.0) (2020-03-09)
+
+
+### Features
+
+* **Build/Lib:** Setting build lib without babel and webpack ([a85472e](https://github.com/venturalp/update-linters/commit/a85472ebb3e6d4145ea4c26335dccd05d2fcce39))
+
+
+
 ## [0.1.11](https://github.com/venturalp/update-linters/compare/v0.1.10...v0.1.11) (2020-03-06)
 
 
